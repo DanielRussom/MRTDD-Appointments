@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Appointment } from "../src/Appointment";
 
 describe('Appointment', () => {
@@ -8,8 +8,9 @@ describe('Appointment', () => {
         const component = <Appointment customer={customer} />;
         const container = document.createElement('div');
         document.body.appendChild(container);
+        const root = createRoot(container);
 
-        ReactDOM.render(component, container);
+        root.render(component);
 
         expect(document.body.textContent).toMatch('Ashley');
     });
