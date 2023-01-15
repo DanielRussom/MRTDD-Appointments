@@ -30,6 +30,9 @@
     "jsxBracketSameLine": true
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "globals": {
+      "IS_REACT_ACT_ENVIRONMENT": true
+    }
   }
 }

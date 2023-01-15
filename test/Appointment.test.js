@@ -1,7 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import ReactDOM from 'react-dom';
 import { Appointment } from "../src/Appointment";
+import {act} from 'react-dom/test-utils';
 
 describe('Appointment', () => {
     it('renders the customer first name', () => {
@@ -9,13 +9,8 @@ describe('Appointment', () => {
         const component = <Appointment customer={customer} />;
         const container = document.createElement('div');
         document.body.appendChild(container);
-        // const root = createRoot(container);
-        // root.render(component);
-
-        ReactDOM.render(component, container);
-
-        console.log("AAAAAAAAAA");
-        console.log(document.body.textContent);
+        const root = createRoot(container);
+        act(() => root.render(component));
 
         expect(document.body.textContent).toMatch('Ashley');
     });
