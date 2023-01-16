@@ -6,14 +6,13 @@ import {act} from 'react-dom/test-utils';
 describe('Appointment', () => {
     it('renders the customer first name', () => {
         const customer = { firstName: "Ashley" };
-        const component = <Appointment customer={customer} />;
         const container = document.createElement('div');
         document.body.appendChild(container);
         const root = createRoot(container);
 
-        act(() => root.render(component));
+        act(() => root.render(<Appointment customer={customer} />));
 
-        expect(document.body.textContent).toMatch('Ashley');
+        expect(container.textContent).toMatch('Ashley');
     });
 
     it.skip('renders another customer first name', () => {
