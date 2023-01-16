@@ -15,15 +15,14 @@ describe('Appointment', () => {
         expect(container.textContent).toMatch('Ashley');
     });
 
-    it.skip('renders another customer first name', () => {
+    it('renders another customer first name', () => {
         const customer = { firstName: "Jordan" };
-        const component = <Appointment customer={customer} />;
         const container = document.createElement('div');
         document.body.appendChild(container);
         const root = createRoot(container);
 
-        act(() => root.render(component));
+        act(() => root.render(<Appointment customer={customer} />));
 
-        expect(document.body.textContent).toMatch('Jordan');
+        expect(container.textContent).toMatch('Jordan');
     });
 });
