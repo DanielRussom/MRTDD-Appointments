@@ -33,11 +33,18 @@ describe('Appointment', () => {
 describe('AppointmentsDayView', () => {
     let container;
     let root;
+    let appointments;
 
     beforeEach(() => {
         container = document.createElement('div');
         document.body.appendChild(container);
         root = createRoot(container);
+
+        const today = new Date();
+        appointments = [ 
+            { startsAt: today.setHours(12, 0) },
+            { startsAt: today.setHours(13, 0) }
+        ]
     });
 
     it('renders a div with the expected id', () => {
@@ -47,12 +54,6 @@ describe('AppointmentsDayView', () => {
     });
 
     it('renders multiple appointments in an ol element', () => {
-        const today = new Date();
-        const appointments = [ 
-            { startsAt: today.setHours(12, 0) },
-            { startsAt: today.setHours(13, 0) }
-        ]
-        
         act(() => root.render(<AppointmentsDayView appointments={appointments} />));
 
         expect(container.querySelector('ol')).not.toBeNull();
@@ -60,12 +61,6 @@ describe('AppointmentsDayView', () => {
     });
     
     it('renders each appointment in an li', () => {
-        const today = new Date();
-        const appointments = [ 
-            { startsAt: today.setHours(12, 0) },
-            { startsAt: today.setHours(13, 0) }
-        ]
-        
         act(() => root.render(<AppointmentsDayView appointments={appointments} />));
 
         var expectedListItems = container.querySelectorAll('li');
