@@ -52,9 +52,25 @@ describe('AppointmentsDayView', () => {
             { startsAt: today.setHours(12, 0) },
             { startsAt: today.setHours(13, 0) }
         ]
+        
         act(() => root.render(<AppointmentsDayView appointments={appointments} />));
 
         expect(container.querySelector('ol')).not.toBeNull();
         expect(container.querySelector('ol').children).toHaveLength(2);
+    });
+    
+    it('renders each appointment in an li', () => {
+        const today = new Date();
+        const appointments = [ 
+            { startsAt: today.setHours(12, 0) },
+            { startsAt: today.setHours(13, 0) }
+        ]
+        
+        act(() => root.render(<AppointmentsDayView appointments={appointments} />));
+
+        var expectedListItems = container.querySelectorAll('li');
+        expect(expectedListItems).toHaveLength(2);
+        expect(expectedListItems[0].textContent).toEqual("12:00")
+        expect(expectedListItems[1].textContent).toEqual("13:00")
     });
 });
