@@ -42,8 +42,14 @@ describe('AppointmentsDayView', () => {
 
         const today = new Date();
         appointments = [ 
-            { startsAt: today.setHours(12, 0) },
-            { startsAt: today.setHours(13, 0) }
+            { 
+                startsAt: today.setHours(12, 0),
+                customer: { firstName: "Ashley"} 
+            },
+            { 
+                startsAt: today.setHours(13, 0),
+                customer: { firstName: "Jordan"} 
+            }
         ]
     });
 
@@ -69,9 +75,18 @@ describe('AppointmentsDayView', () => {
         expect(expectedListItems[1].textContent).toEqual("13:00")
     });
     
-    it('initially show a message saying there are no appointments today', () => {
+    it('initially shows a message saying there are no appointments today', () => {
         act(() => root.render(<AppointmentsDayView appointments={[]} />));
 
         expect(container.textContent).toMatch("There are no appointments scheduled for today.");
+    });
+    
+    it('selects the first appointment by default', () => {
+        act(() => root.render(<AppointmentsDayView appointments={appointments} />));
+            
+        console.log(appointments);
+        console.log(...appointments);
+        console.log(appointments[0]);
+        expect(container.textContent).toMatch("Ashley");
     });
 });
