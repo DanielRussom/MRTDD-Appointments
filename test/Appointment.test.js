@@ -68,4 +68,10 @@ describe('AppointmentsDayView', () => {
         expect(expectedListItems[0].textContent).toEqual("12:00")
         expect(expectedListItems[1].textContent).toEqual("13:00")
     });
+    
+    it('initially show a message saying there are no appointments today', () => {
+        act(() => root.render(<AppointmentsDayView appointments={[]} />));
+
+        expect(container.textContent).toMatch("There are no appointments scheduled for today.");
+    });
 });
