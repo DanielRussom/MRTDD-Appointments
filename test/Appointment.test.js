@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { Appointment, AppointmentsDayView } from "../src/Appointment";
 import {act} from 'react-dom/test-utils';
 import { render } from 'react-dom';
+import { fireEvent } from '@testing-library/react';
 
 describe('Appointment', () => {
     let container;
@@ -97,5 +98,13 @@ describe('AppointmentsDayView', () => {
         const expectedButtons = container.querySelectorAll('li > button');
         expect(expectedButtons).toHaveLength(2);
         expect(expectedButtons[0].type).toEqual('button');
+    });
+
+    it.skip('renders another appointment when selected', () => {
+        act(() => root.render(<AppointmentsDayView appointments={appointments} />));
+        
+        const button = container.querySelectorAll('button')[1];
+        fireEvent.click(button);
+        expect(container.textContent).toMatch('Jordan');
     });
 });
