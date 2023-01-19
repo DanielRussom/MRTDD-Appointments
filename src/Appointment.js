@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const appointmentTimeOfDay = startsAt => {
     const [h, m] = new Date(startsAt).toTimeString().split(':');
@@ -11,12 +11,17 @@ export const Appointment = ({ customer }) => (
 );
 
 export const AppointmentsDayView = ({ appointments }) => { 
+const [selectedAppointmentIndex, setSelectedAppointmentIndex] = useState(0);
+
     return (
     <div id="appointmentsDayView">
         <ol>
-            {appointments.map(appointment => (
+            {appointments.map((appointment, index) => (
                 <li key={appointment.startsAt}>
-                    <button type="button">
+                    <button 
+                        type="button"
+                        onClick={() => setSelectedAppointmentIndex(index)}
+                        >
                         {appointmentTimeOfDay(appointment.startsAt)}
                     </button>
                 </li>
@@ -25,7 +30,7 @@ export const AppointmentsDayView = ({ appointments }) => {
         { appointments.length === 0 ? (
         <p>There are no appointments scheduled for today.</p>
         ) : (
-            <Appointment {...appointments[0]} />
+            <Appointment {...appointments[selectedAppointmentIndex]} />
         )}
         
     </div>
