@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Appointment, AppointmentsDayView } from "../src/Appointment";
 import {act} from 'react-dom/test-utils';
+import { render } from 'react-dom';
 
 describe('Appointment', () => {
     let container;
@@ -88,5 +89,13 @@ describe('AppointmentsDayView', () => {
         console.log(...appointments);
         console.log(appointments[0]);
         expect(container.textContent).toMatch("Ashley");
+    });
+
+    it('has a button element in each li', () => {
+        act(() => root.render(<AppointmentsDayView appointments={appointments} />));
+        
+        const expectedButtons = container.querySelectorAll('li > button');
+        expect(expectedButtons).toHaveLength(2);
+        expect(expectedButtons[0].type).toEqual('button');
     });
 });
