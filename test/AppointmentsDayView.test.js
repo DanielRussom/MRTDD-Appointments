@@ -39,11 +39,13 @@ describe('Appointment', () => {
     });
 
     it('renders the customer phone number', () => {
-        const customer = { phoneNumber: '123-456' };
+        const customer = { firstName: "Ashley", surname: "Surname", phoneNumber: '123-456' };
         
         act(() => root.render(<Appointment customer={customer} />));
 
-        expect(container.textContent).toMatch('123-456');
+        expect(container.querySelector('#phoneNumber').textContent).toEqual('123-456');
+        
+        
     });
 });
 
@@ -100,10 +102,7 @@ describe('AppointmentsDayView', () => {
     
     it('selects the first appointment by default', () => {
         act(() => root.render(<AppointmentsDayView appointments={appointments} />));
-            
-        console.log(appointments);
-        console.log(...appointments);
-        console.log(appointments[0]);
+        
         expect(container.textContent).toMatch("Ashley");
     });
 
