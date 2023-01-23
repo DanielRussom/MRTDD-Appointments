@@ -34,6 +34,7 @@ input[type="submit"], button, .button, .toggle-button {
   outline: none;
   padding: 5px 15px 5px 15px;
   margin: 5px 5px 5px 0px;
+  appearance: none;
   -webkit-appearance: none;
   border-radius: 2px;
   cursor: pointer;

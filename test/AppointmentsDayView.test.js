@@ -37,6 +37,14 @@ describe('Appointment', () => {
 
         expect(container.textContent).toMatch('Ashley Surname');
     });
+
+    it('renders the customer phone number', () => {
+        const customer = { phoneNumber: '123-456' };
+        
+        act(() => root.render(<Appointment customer={customer} />));
+
+        expect(container.textContent).toMatch('123-456');
+    });
 });
 
 describe('AppointmentsDayView', () => {
