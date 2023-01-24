@@ -45,7 +45,7 @@ describe('Appointment', () => {
     it('renders the stylist name', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(container.querySelector('#stylist').textContent).toEqual(customerAshley.stylistName);
+        expect(container.querySelector('tr#stylist td').textContent).toEqual(customerAshley.stylistName);
     });
 });
 
