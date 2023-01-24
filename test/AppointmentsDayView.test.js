@@ -22,24 +22,18 @@ describe('Appointment', () => {
         expect(container.querySelector('table')).not.toBeNull();
     });
 
-    it('renders the customer first name', () => {
-        act(() => root.render(<Appointment customer={customerAshley} />));
-
-        expect(container.textContent).toMatch('Ashley');
-    });
-
-    it('renders another customer first name', () => {
-        const customer = { firstName: "Jordan" };
-
-        act(() => root.render(<Appointment customer={customer} />));
-
-        expect(container.textContent).toMatch('Jordan');
-    });
-
     it('renders the customers full name in the name field', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(container.querySelector('#customer').textContent).toEqual('Ashley Surname');
+        expect(container.querySelector('tr#customer td').textContent).toEqual(customerAshley.firstName + " " + customerAshley.surname);
+    });
+
+    it('renders another customer name', () => {
+        const customer = { firstName: "Jordan", surname: "Personson" };
+
+        act(() => root.render(<Appointment customer={customer} />));
+
+        expect(container.querySelector('tr#customer td').textContent).toEqual(customer.firstName + " " + customer.surname);
     });
 
     it('renders the customer phone number', () => {

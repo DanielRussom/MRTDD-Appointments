@@ -8,7 +8,9 @@ const appointmentTimeOfDay = startsAt => {
 export const Appointment = ({ customer }) => (
     
     <table>
-        <div id='customer'>{customer.firstName} {customer.surname}</div>
+        <tr id='customer'>
+            <td>{customer.firstName} {customer.surname}</td>
+        </tr>
         <tr id='phoneNumber'>
             <td>{customer.phoneNumber}</td>
         </tr>
