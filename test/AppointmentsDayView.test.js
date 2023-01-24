@@ -13,7 +13,7 @@ describe('Appointment', () => {
         container = document.createElement('div');
         document.body.appendChild(container);
         root = createRoot(container);
-        customerAshley =  { firstName: "Ashley", surname: "Surname", phoneNumber: '123-456' };
+        customerAshley =  { firstName: "Ashley", surname: "Surname", phoneNumber: '123-456', stylistName: "Diana Bunn" };
     });
 
     it('renders the customer first name', () => {
@@ -40,6 +40,12 @@ describe('Appointment', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
         expect(container.querySelector('#phoneNumber').textContent).toEqual('123-456');
+    });
+
+    it('renders the stylist name', () => {
+        act(() => root.render(<Appointment customer={customerAshley} />));
+
+        expect(container.querySelector('#stylist').textContent).toEqual(customerAshley.stylistName);
     });
 });
 
