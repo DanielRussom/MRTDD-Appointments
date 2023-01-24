@@ -7,17 +7,17 @@ import { fireEvent } from '@testing-library/react';
 describe('Appointment', () => {
     let container;
     let root;
+    let customerAshley;
 
     beforeEach(() => {
         container = document.createElement('div');
         document.body.appendChild(container);
         root = createRoot(container);
+        customerAshley =  { firstName: "Ashley", surname: "Surname", phoneNumber: '123-456' };
     });
 
     it('renders the customer first name', () => {
-        const customer = { firstName: "Ashley" };
-
-        act(() => root.render(<Appointment customer={customer} />));
+        act(() => root.render(<Appointment customer={customerAshley} />));
 
         expect(container.textContent).toMatch('Ashley');
     });
@@ -31,21 +31,15 @@ describe('Appointment', () => {
     });
 
     it('renders the customers full name in the name field', () => {
-        const customer = { firstName: "Ashley", surname: "Surname" };
-        
-        act(() => root.render(<Appointment customer={customer} />));
+        act(() => root.render(<Appointment customer={customerAshley} />));
 
         expect(container.querySelector('#customer').textContent).toEqual('Ashley Surname');
     });
 
     it('renders the customer phone number', () => {
-        const customer = { firstName: "Ashley", surname: "Surname", phoneNumber: '123-456' };
-        
-        act(() => root.render(<Appointment customer={customer} />));
+        act(() => root.render(<Appointment customer={customerAshley} />));
 
         expect(container.querySelector('#phoneNumber').textContent).toEqual('123-456');
-        
-        
     });
 });
 
