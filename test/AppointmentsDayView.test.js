@@ -13,7 +13,12 @@ describe('Appointment', () => {
         container = document.createElement('div');
         document.body.appendChild(container);
         root = createRoot(container);
-        customerAshley =  { firstName: "Ashley", surname: "Surname", phoneNumber: '123-456', stylistName: "Diana Bunn" };
+        customerAshley =  { 
+            firstName: "Ashley", 
+            surname: "Surname", 
+            phoneNumber: '123-456', 
+            stylistName: "Diana Bunn", 
+            service: "Trim" };
     });
 
     it('renders a table', () => {
@@ -46,6 +51,12 @@ describe('Appointment', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
         expect(container.querySelector('tr#stylist td').textContent).toEqual(customerAshley.stylistName);
+    });
+
+    it('renders the salon service', () => {
+        act(() => root.render(<Appointment customer={customerAshley} />));
+
+        expect(container.querySelector('tr#service td').textContent).toEqual(customerAshley.service);
     });
 });
 
