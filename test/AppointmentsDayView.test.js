@@ -16,6 +16,12 @@ describe('Appointment', () => {
         customerAshley =  { firstName: "Ashley", surname: "Surname", phoneNumber: '123-456', stylistName: "Diana Bunn" };
     });
 
+    it('renders a table', () => {
+        act(() => root.render(<Appointment customer={customerAshley} />));
+
+        expect(container.querySelector('table')).not.toBeNull();
+    });
+
     it('renders the customer first name', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
