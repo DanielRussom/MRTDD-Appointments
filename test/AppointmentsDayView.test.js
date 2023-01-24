@@ -45,7 +45,7 @@ describe('Appointment', () => {
     it('renders the customer phone number', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(container.querySelector('#phoneNumber').textContent).toEqual('123-456');
+        expect(container.querySelector('tr#phoneNumber td').textContent).toEqual(customerAshley.phoneNumber);
     });
 
     it('renders the stylist name', () => {

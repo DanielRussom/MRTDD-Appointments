@@ -9,7 +9,9 @@ export const Appointment = ({ customer }) => (
     
     <table>
         <div id='customer'>{customer.firstName} {customer.surname}</div>
-        <div id='phoneNumber'>{customer.phoneNumber}</div>
+        <tr id='phoneNumber'>
+            <td>{customer.phoneNumber}</td>
+        </tr>
         <tr id='stylist'>
             <td>{customer.stylistName}</td>
         </tr>
