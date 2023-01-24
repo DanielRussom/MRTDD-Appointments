@@ -17,9 +17,12 @@ describe('Appointment', () => {
             firstName: "Ashley", 
             surname: "Surname", 
             phoneNumber: '123-456', 
-            stylistName: "Diana Bunn", 
+            stylist: "Diana Bunn", 
             service: "Trim" };
     });
+
+    const TableDataTextContent = (id) =>
+        container.querySelector('tr#' + id + ' td').textContent;
 
     it('renders a table', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
@@ -50,13 +53,13 @@ describe('Appointment', () => {
     it('renders the stylist name', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(container.querySelector('tr#stylist td').textContent).toEqual(customerAshley.stylistName);
+        expect(container.querySelector('tr#stylist td').textContent).toEqual(customerAshley.stylist);
     });
 
     it('renders the salon service', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(container.querySelector('tr#service td').textContent).toEqual(customerAshley.service);
+        expect(TableDataTextContent('service')).toEqual(customerAshley.service);
     });
 });
 

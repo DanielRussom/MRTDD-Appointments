@@ -15,7 +15,7 @@ export const Appointment = ({ customer }) => (
             <td>{customer.phoneNumber}</td>
         </tr>
         <tr id='stylist'>
-            <td>{customer.stylistName}</td>
+            <td>{customer.stylist}</td>
         </tr>
         <tr id='service'>
             <td>{customer.service}</td>
