@@ -33,6 +33,14 @@ describe('Appointment', () => {
 
       expect(container.querySelector('h3').textContent).toEqual(`Today's appointment at 09:00`);
     });
+        
+    it('renders a heading with another time', () => {
+      const timestamp = new Date().setHours(10, 0, 0);
+
+      act(() => root.render(<Appointment customer={customerAshley} startsAt={timestamp} />));
+
+      expect(container.querySelector('h3').textContent).toEqual(`Today's appointment at 10:00`);
+    });
 
     it('renders a table', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
