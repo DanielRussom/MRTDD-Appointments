@@ -32,10 +32,12 @@ describe('Appointment', () => {
         expect(container.querySelector('table')).not.toBeNull();
     });
 
-    it('renders the customers full name in the name field', () => {
+    it('renders the customers full name in the name field with a field title', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(TableDataTextContent('customer')).toEqual(`${customerAshley.firstName} ${customerAshley.surname}`);
+        var actualElements = container.querySelectorAll(`tr#customer td`);
+        expect(actualElements[0].textContent).toEqual(`Customer`);
+        expect(actualElements[1].textContent).toEqual(`${customerAshley.firstName} ${customerAshley.surname}`);
     });
 
     it('renders another customer name', () => {
@@ -43,7 +45,7 @@ describe('Appointment', () => {
 
         act(() => root.render(<Appointment customer={customer} />));
 
-        expect(TableDataTextContent('customer')).toEqual(`${customer.firstName} ${customer.surname}`);
+        expect(container.querySelectorAll(`tr#customer td`)[1].textContent).toEqual(`${customer.firstName} ${customer.surname}`);
     });
 
     it('renders the customer phone number', () => {
