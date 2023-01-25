@@ -26,6 +26,9 @@ describe('Appointment', () => {
     const TableDataTextContent = (id) =>
         container.querySelector(`tr#${id} td`).textContent;
 
+    const TableDataElements = (id) =>
+        container.querySelectorAll(`tr#${id} td`);
+
     it('renders a table', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
@@ -35,7 +38,7 @@ describe('Appointment', () => {
     it('renders the customers full name in the name field with a field title', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        var actualElements = container.querySelectorAll(`tr#customer td`);
+        var actualElements = TableDataElements('customer');
         expect(actualElements[0].textContent).toEqual(`Customer`);
         expect(actualElements[1].textContent).toEqual(`${customerAshley.firstName} ${customerAshley.surname}`);
     });

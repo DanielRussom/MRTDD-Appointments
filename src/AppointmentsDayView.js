@@ -8,22 +8,24 @@ const appointmentTimeOfDay = startsAt => {
 export const Appointment = ({ customer }) => (
     
     <table>
-        <tr id='customer'>
-            <td>Customer</td>
-            <td>{customer.firstName} {customer.surname}</td>
-        </tr>
-        <tr id='phoneNumber'>
-            <td>{customer.phoneNumber}</td>
-        </tr>
-        <tr id='stylist'>
-            <td>{customer.stylist}</td>
-        </tr>
-        <tr id='service'>
-            <td>{customer.service}</td>
-        </tr>
-        <tr id='notes'>
-            <td>{customer.notes}</td>
-        </tr>
+        <tbody>
+            <tr id='customer'>
+                <td>Customer</td>
+                <td>{customer.firstName} {customer.surname}</td>
+            </tr>
+            <tr id='phoneNumber'>
+                <td>{customer.phoneNumber}</td>
+            </tr>
+            <tr id='stylist'>
+                <td>{customer.stylist}</td>
+            </tr>
+            <tr id='service'>
+                <td>{customer.service}</td>
+            </tr>
+            <tr id='notes'>
+                <td>{customer.notes}</td>
+            </tr>
+        </tbody>
     </table>
 );
 
