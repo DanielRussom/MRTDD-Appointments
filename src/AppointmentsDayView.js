@@ -7,30 +7,34 @@ const appointmentTimeOfDay = startsAt => {
 
 export const Appointment = ({ customer }) => (
     
-    <table>
-        <tbody>
-            <tr id='customer'>
-                <td>Customer</td>
-                <td>{customer.firstName} {customer.surname}</td>
-            </tr>
-            <tr id='phoneNumber'>
-                <td>Phone number</td>
-                <td>{customer.phoneNumber}</td>
-            </tr>
-            <tr id='stylist'>
-                <td>Stylist</td>
-                <td>{customer.stylist}</td>
-            </tr>
-            <tr id='service'>
-                <td>Service</td>
-                <td>{customer.service}</td>
-            </tr>
-            <tr id='notes'>
-                <td>Notes</td>
-                <td>{customer.notes}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div>
+        <h3>Today's appointment at 09:00</h3>
+        
+        <table>
+            <tbody>
+                <tr id='customer'>
+                    <td>Customer</td>
+                    <td>{customer.firstName} {customer.surname}</td>
+                </tr>
+                <tr id='phoneNumber'>
+                    <td>Phone number</td>
+                    <td>{customer.phoneNumber}</td>
+                </tr>
+                <tr id='stylist'>
+                    <td>Stylist</td>
+                    <td>{customer.stylist}</td>
+                </tr>
+                <tr id='service'>
+                    <td>Service</td>
+                    <td>{customer.service}</td>
+                </tr>
+                <tr id='notes'>
+                    <td>Notes</td>
+                    <td>{customer.notes}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 );
 
 export const AppointmentsDayView = ({ appointments }) => { 

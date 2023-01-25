@@ -23,11 +23,16 @@ describe('Appointment', () => {
         };
     });
 
-    const TableDataTextContent = (id) =>
-        container.querySelector(`tr#${id} td`).textContent;
-
     const TableDataElements = (id) =>
-        container.querySelectorAll(`tr#${id} td`);
+        container.querySelectorAll(`tr#${id} td`); 
+        
+    it('renders a heading with the time', () => {
+      const timestamp = new Date().setHours(9, 0, 0);
+
+      act(() => root.render(<Appointment customer={customerAshley} startsAt={timestamp} />));
+
+      expect(container.querySelector('h3').textContent).toEqual(`Today's appointment at 09:00`);
+    });
 
     it('renders a table', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
