@@ -48,19 +48,23 @@ describe('Appointment', () => {
 
         act(() => root.render(<Appointment customer={customer} />));
 
-        expect(container.querySelectorAll(`tr#customer td`)[1].textContent).toEqual(`${customer.firstName} ${customer.surname}`);
+        expect(TableDataElements('customer')[1].textContent).toEqual(`${customer.firstName} ${customer.surname}`);
     });
 
     it('renders the customer phone number', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(TableDataTextContent('phoneNumber')).toEqual(customerAshley.phoneNumber);
+        var actualElements = TableDataElements('phoneNumber');
+        expect(actualElements[0].textContent).toEqual(`Phone number`);
+        expect(actualElements[1].textContent).toEqual(customerAshley.phoneNumber);
     });
 
     it('renders the stylist name', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(TableDataTextContent('stylist')).toEqual(customerAshley.stylist);
+        var actualElements = TableDataElements('stylist');
+        expect(actualElements[0].textContent).toEqual(`Stylist`);
+        expect(actualElements[1].textContent).toEqual(customerAshley.stylist);
     });
 
     it('renders the salon service', () => {
