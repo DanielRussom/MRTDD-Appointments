@@ -18,7 +18,9 @@ describe('Appointment', () => {
             surname: "Surname", 
             phoneNumber: '123-456', 
             stylist: "Diana Bunn", 
-            service: "Trim" };
+            service: "Trim", 
+            notes: "Lorem Ipsum" 
+        };
     });
 
     const TableDataTextContent = (id) =>
@@ -60,6 +62,12 @@ describe('Appointment', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
         expect(TableDataTextContent('service')).toEqual(customerAshley.service);
+    });
+
+    it('renders the notes', () => {
+        act(() => root.render(<Appointment customer={customerAshley} />));
+
+        expect(TableDataTextContent('notes')).toEqual(customerAshley.notes);
     });
 });
 

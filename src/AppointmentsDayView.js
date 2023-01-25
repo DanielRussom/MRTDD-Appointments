@@ -20,6 +20,9 @@ export const Appointment = ({ customer }) => (
         <tr id='service'>
             <td>{customer.service}</td>
         </tr>
+        <tr id='notes'>
+            <td>{customer.notes}</td>
+        </tr>
     </table>
 );
 
