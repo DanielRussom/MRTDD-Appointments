@@ -22,7 +22,7 @@ describe('Appointment', () => {
     });
 
     const TableDataTextContent = (id) =>
-        container.querySelector('tr#' + id + ' td').textContent;
+        container.querySelector(`tr#${id} td`).textContent;
 
     it('renders a table', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
@@ -33,7 +33,7 @@ describe('Appointment', () => {
     it('renders the customers full name in the name field', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(container.querySelector('tr#customer td').textContent).toEqual(customerAshley.firstName + " " + customerAshley.surname);
+        expect(TableDataTextContent('customer')).toEqual(`${customerAshley.firstName} ${customerAshley.surname}`);
     });
 
     it('renders another customer name', () => {
@@ -41,19 +41,19 @@ describe('Appointment', () => {
 
         act(() => root.render(<Appointment customer={customer} />));
 
-        expect(container.querySelector('tr#customer td').textContent).toEqual(customer.firstName + " " + customer.surname);
+        expect(TableDataTextContent('customer')).toEqual(`${customer.firstName} ${customer.surname}`);
     });
 
     it('renders the customer phone number', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(container.querySelector('tr#phoneNumber td').textContent).toEqual(customerAshley.phoneNumber);
+        expect(TableDataTextContent('phoneNumber')).toEqual(customerAshley.phoneNumber);
     });
 
     it('renders the stylist name', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(container.querySelector('tr#stylist td').textContent).toEqual(customerAshley.stylist);
+        expect(TableDataTextContent('stylist')).toEqual(customerAshley.stylist);
     });
 
     it('renders the salon service', () => {
