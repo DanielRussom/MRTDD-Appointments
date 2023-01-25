@@ -22,9 +22,11 @@ export const Appointment = ({ customer }) => (
                 <td>{customer.stylist}</td>
             </tr>
             <tr id='service'>
+                <td>Service</td>
                 <td>{customer.service}</td>
             </tr>
             <tr id='notes'>
+                <td>Notes</td>
                 <td>{customer.notes}</td>
             </tr>
         </tbody>

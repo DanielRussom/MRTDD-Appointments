@@ -70,13 +70,17 @@ describe('Appointment', () => {
     it('renders the salon service', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(TableDataTextContent('service')).toEqual(customerAshley.service);
+        var actualElements = TableDataElements('service');
+        expect(actualElements[0].textContent).toEqual(`Service`);
+        expect(actualElements[1].textContent).toEqual(customerAshley.service);
     });
 
     it('renders the notes', () => {
         act(() => root.render(<Appointment customer={customerAshley} />));
 
-        expect(TableDataTextContent('notes')).toEqual(customerAshley.notes);
+        var actualElements = TableDataElements('notes');
+        expect(actualElements[0].textContent).toEqual(`Notes`);
+        expect(actualElements[1].textContent).toEqual(customerAshley.notes);
     });
 });
 
