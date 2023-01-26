@@ -102,9 +102,9 @@ var AppointmentsDayView = function (_a) {
 
 /***/ }),
 
-/***/ "./src/sampleData.js":
+/***/ "./src/sampleData.ts":
 /*!***************************!*\
-  !*** ./src/sampleData.js ***!
+  !*** ./src/sampleData.ts ***!
   \***************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -228,7 +228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
 /* harmony import */ var _AppointmentsDayView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppointmentsDayView */ "./src/AppointmentsDayView.js");
-/* harmony import */ var _sampleData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sampleData */ "./src/sampleData.js");
+/* harmony import */ var _sampleData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sampleData */ "./src/sampleData.ts");
 
 
 
