@@ -34,10 +34,10 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./src/AppointmentsDayView.js":
-/*!************************************!*\
-  !*** ./src/AppointmentsDayView.js ***!
-  \************************************/
+/***/ "./src/AppointmentsDayView.tsx":
+/*!*************************************!*\
+  !*** ./src/AppointmentsDayView.tsx ***!
+  \*************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -59,44 +59,45 @@ var __assign = (undefined && undefined.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 
+
 var appointmentTimeOfDay = function (startsAt) {
     var _a = new Date(startsAt).toTimeString().split(':'), h = _a[0], m = _a[1];
     return "".concat(h, ":").concat(m);
 };
 var Appointment = function (_a) {
     var customer = _a.customer, startsAt = _a.startsAt;
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null,
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null,
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null,
             "Today's appointment at ",
             appointmentTimeOfDay(startsAt)),
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("table", null,
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tbody", null,
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { id: 'customer' },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Customer"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null,
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("table", null,
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("tbody", null,
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { id: 'customer' },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Customer"),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null,
                         customer.firstName,
                         " ",
                         customer.surname)),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { id: 'phoneNumber' },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Phone number"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, customer.phoneNumber)),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { id: 'stylist' },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Stylist"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, customer.stylist)),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { id: 'service' },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Service"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, customer.service)),
-                react__WEBPACK_IMPORTED_MODULE_0___default().createElement("tr", { id: 'notes' },
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, "Notes"),
-                    react__WEBPACK_IMPORTED_MODULE_0___default().createElement("td", null, customer.notes))))));
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { id: 'phoneNumber' },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Phone number"),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, customer.phoneNumber)),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { id: 'stylist' },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Stylist"),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, customer.stylist)),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { id: 'service' },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Service"),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, customer.service)),
+                react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { id: 'notes' },
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Notes"),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, customer.notes))))));
 };
 var AppointmentsDayView = function (_a) {
     var appointments = _a.appointments;
     var _b = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0), selectedAppointmentIndex = _b[0], setSelectedAppointmentIndex = _b[1];
-    return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", { id: "appointmentsDayView" },
-        react__WEBPACK_IMPORTED_MODULE_0___default().createElement("ol", null, appointments.map(function (appointment, index) { return (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("li", { key: appointment.startsAt },
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", { type: "button", onClick: function () { return setSelectedAppointmentIndex(index); } }, appointmentTimeOfDay(appointment.startsAt)))); })),
-        appointments.length === 0 ? (react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "There are no appointments scheduled for today.")) : (react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Appointment, __assign({}, appointments[selectedAppointmentIndex])))));
+    return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", { id: "appointmentsDayView" },
+        react__WEBPACK_IMPORTED_MODULE_0__.createElement("ol", null, appointments.map(function (appointment, index) { return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", { key: appointment.startsAt },
+            react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", { type: "button", onClick: function () { return setSelectedAppointmentIndex(index); } }, appointmentTimeOfDay(appointment.startsAt)))); })),
+        appointments.length === 0 ? (react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "There are no appointments scheduled for today.")) : (react__WEBPACK_IMPORTED_MODULE_0__.createElement(Appointment, __assign({}, appointments[selectedAppointmentIndex])))));
 };
 
 
@@ -227,7 +228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_dom_client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom/client */ "./node_modules/react-dom/client.js");
-/* harmony import */ var _AppointmentsDayView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppointmentsDayView */ "./src/AppointmentsDayView.js");
+/* harmony import */ var _AppointmentsDayView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AppointmentsDayView */ "./src/AppointmentsDayView.tsx");
 /* harmony import */ var _sampleData__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./sampleData */ "./src/sampleData.ts");
 
 
