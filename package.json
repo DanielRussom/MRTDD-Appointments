@@ -2,7 +2,7 @@
   "name": "appointments",
   "version": "1.0.0",
   "description": "Appointments system",
-  "main": "index.js",
+  "main": "index.tsx",
   "scripts": {
     "test": "jest --watchAll",
     "build": "webpack"

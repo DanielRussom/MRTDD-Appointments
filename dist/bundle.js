@@ -221,9 +221,9 @@ module.exports = ReactDOM;
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
+/*!***********************!*\
+  !*** ./src/index.tsx ***!
+  \***********************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
@@ -235,7 +235,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(document.getElementById('root'));
-root.render(react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AppointmentsDayView__WEBPACK_IMPORTED_MODULE_2__.AppointmentsDayView, { appointments: _sampleData__WEBPACK_IMPORTED_MODULE_3__.sampleAppointments }));
+root.render(react__WEBPACK_IMPORTED_MODULE_0__.createElement(_AppointmentsDayView__WEBPACK_IMPORTED_MODULE_2__.AppointmentsDayView, { appointments: _sampleData__WEBPACK_IMPORTED_MODULE_3__.sampleAppointments }));
 
 })();
 

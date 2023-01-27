@@ -12,7 +12,7 @@ const webpack = require("webpack");
 
 module.exports = {
   // change to .tsx if necessary
-  entry: './src/index.js',
+  entry: './src/index.tsx',
   output: {
     filename: './bundle.js'
   },
