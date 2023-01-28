@@ -33405,7 +33405,7 @@ var appointmentTimeOfDay = function (startsAt) {
     return "".concat(h, ":").concat(m);
 };
 var Appointment = function (_a) {
-    var customer = _a.customer, startsAt = _a.startsAt;
+    var customer = _a.customer, stylist = _a.stylist, startsAt = _a.startsAt;
     return (react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null,
         react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null,
             "Today's appointment at ",
@@ -33423,7 +33423,7 @@ var Appointment = function (_a) {
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, customer.phoneNumber)),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { id: 'stylist' },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Stylist"),
-                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, customer.stylist)),
+                    react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, stylist)),
                 react__WEBPACK_IMPORTED_MODULE_0__.createElement("tr", { id: 'service' },
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, "Service"),
                     react__WEBPACK_IMPORTED_MODULE_0__.createElement("td", null, customer.service)),
@@ -33457,94 +33457,103 @@ var today = new Date();
 var at = function (hours) { return today.setHours(hours, 0); };
 var sampleAppointments = [
     {
-        startsAt: at(9), customer: {
+        startsAt: at(9),
+        customer: {
             firstName: 'Charlie',
             surname: 'Bloggs',
             phoneNumber: '(+44) 142-4023',
-            stylist: "Rhiannon Bunn",
             service: "Trim",
             notes: "Lorem Ipsum"
-        }
+        },
+        stylist: "Rhiannon Bunn"
     },
     {
-        startsAt: at(10), customer: {
+        startsAt: at(10),
+        customer: {
             firstName: 'Frankie',
             surname: "Surname",
             phoneNumber: '(+44) 133-456',
-            stylist: "Hazel Bunn",
             service: "Trim",
             notes: "Lorem Ipsum"
-        }
+        },
+        stylist: "Hazel Bunn"
     },
     {
-        startsAt: at(11), customer: {
+        startsAt: at(11),
+        customer: {
             firstName: 'Casey',
             surname: "Personson",
             phoneNumber: '(+44) 443-456',
-            stylist: "Hazel Bunn",
             service: "Trim",
             notes: "Lorem Ipsum"
-        }
+        },
+        stylist: "Hazel Bunn"
     },
     {
-        startsAt: at(12), customer: {
+        startsAt: at(12),
+        customer: {
             firstName: "Ashley",
             surname: "Surname",
             phoneNumber: '(+44) 443-756',
-            stylist: "Hazel Bunn",
             service: "Trim",
             notes: "Lorem Ipsum"
-        }
+        },
+        stylist: "Hazel Bunn"
     },
     {
-        startsAt: at(13), customer: {
+        startsAt: at(13),
+        customer: {
             firstName: 'Jordan',
             surname: "Personson",
             phoneNumber: '(+44) 143-456',
-            stylist: "Rhiannon Bunn",
             service: "Trim",
             notes: "Lorem Ipsum"
-        }
+        },
+        stylist: "Rhiannon Bunn"
     },
     {
-        startsAt: at(14), customer: {
+        startsAt: at(14),
+        customer: {
             firstName: 'Jay',
             surname: "Surname",
             phoneNumber: '(+44) 443-486',
-            stylist: "Rhiannon Bunn",
             service: "Something that isn't a Trim",
             notes: "Lorem Ipsum"
-        }
+        },
+        stylist: "Rhiannon Bunn"
     },
     {
-        startsAt: at(15), customer: {
+        startsAt: at(15),
+        customer: {
             firstName: 'Alex',
             surname: "Surname",
             phoneNumber: '(+44) 443-412',
-            stylist: "Hazel Bunn",
             service: "Trim",
             notes: "Lorem Ipsum"
-        }
+        },
+        stylist: "Hazel Bunn"
     },
     {
-        startsAt: at(16), customer: {
+        startsAt: at(16),
+        customer: {
             firstName: 'Jules',
             surname: "Spurtame",
             phoneNumber: '(+44) 443-455',
-            stylist: "Hazel Bunn",
             service: "Beard Trim",
             notes: "Lorem Ipsum"
-        }
+        },
+        stylist: "Hazel Bunn"
     },
     {
-        startsAt: at(17), customer: {
+        startsAt: at(17),
+        customer: {
             firstName: 'Stevie',
             surname: "Spurtame",
             phoneNumber: '123-456',
-            stylist: "Gurt",
             service: "Trim",
             notes: "What kind of name is Spurtname lmao."
-        }
+        },
+        stylist: "Gurt"
     },
 ];
 

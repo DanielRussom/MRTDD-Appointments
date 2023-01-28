@@ -6,7 +6,7 @@ const appointmentTimeOfDay = startsAt => {
     return `${h}:${m}`;
 }
 
-export const Appointment = ({ customer, startsAt }) => (
+export const Appointment = ({ customer, stylist, startsAt }) => (
     
     <div>
         <h3>Today's appointment at {appointmentTimeOfDay(startsAt)}</h3>
@@ -23,7 +23,7 @@ export const Appointment = ({ customer, startsAt }) => (
                 </tr>
                 <tr id='stylist'>
                     <td>Stylist</td>
-                    <td>{customer.stylist}</td>
+                    <td>{stylist}</td>
                 </tr>
                 <tr id='service'>
                     <td>Service</td>
