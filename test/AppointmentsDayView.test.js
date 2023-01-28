@@ -17,7 +17,6 @@ describe('Appointment', () => {
             firstName: "Ashley", 
             surname: "Surname", 
             phoneNumber: '123-456', 
-            service: "Trim", 
             notes: "Lorem Ipsum" 
         };
     });
@@ -80,11 +79,11 @@ describe('Appointment', () => {
     });
 
     it('renders the salon service', () => {
-        act(() => root.render(<Appointment customer={customerAshley} />));
+        act(() => root.render(<Appointment customer={customerAshley} service="Trim"/>));
 
         var actualElements = TableDataElements('service');
         expect(actualElements[0].textContent).toEqual(`Service`);
-        expect(actualElements[1].textContent).toEqual(customerAshley.service);
+        expect(actualElements[1].textContent).toEqual("Trim");
     });
 
     it('renders the notes', () => {

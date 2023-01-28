@@ -8,10 +8,10 @@ export const sampleAppointments = [
             firstName: 'Charlie', 
             surname: 'Bloggs', 
             phoneNumber: '(+44) 142-4023',
-            service: "Trim",
             notes: "Lorem Ipsum"
         },
-        stylist: "Rhiannon Bunn"
+        stylist: "Rhiannon Bunn",
+        service: "Trim"
     },
     {
         startsAt: at(10), 
@@ -19,10 +19,10 @@ export const sampleAppointments = [
             firstName: 'Frankie',
             surname: "Surname",
             phoneNumber: '(+44) 133-456',
-            service: "Trim",
             notes: "Lorem Ipsum"
         },
-        stylist: "Hazel Bunn"
+        stylist: "Hazel Bunn",
+        service: "Trim"
     },
     {
         startsAt: at(11), 
@@ -30,10 +30,10 @@ export const sampleAppointments = [
             firstName: 'Casey',
             surname: "Personson",
             phoneNumber: '(+44) 443-456',
-            service: "Trim",
             notes: "Lorem Ipsum"
         },
-        stylist: "Hazel Bunn"
+        stylist: "Hazel Bunn",
+        service: "Trim"
     },
     {
         startsAt: at(12), 
@@ -41,10 +41,10 @@ export const sampleAppointments = [
             firstName: "Ashley",
             surname: "Surname",
             phoneNumber: '(+44) 443-756',
-            service: "Trim",
             notes: "Lorem Ipsum"
         },
-        stylist: "Hazel Bunn"
+        stylist: "Hazel Bunn",
+        service: "Trim"
     },
     {
         startsAt: at(13), 
@@ -52,10 +52,10 @@ export const sampleAppointments = [
             firstName: 'Jordan',
             surname: "Personson",
             phoneNumber: '(+44) 143-456',
-            service: "Trim",
             notes: "Lorem Ipsum"
         },
-        stylist: "Rhiannon Bunn"
+        stylist: "Rhiannon Bunn",
+        service: "Trim"
     },
     {
         startsAt: at(14), 
@@ -63,10 +63,10 @@ export const sampleAppointments = [
             firstName: 'Jay',
             surname: "Surname",
             phoneNumber: '(+44) 443-486',
-            service: "Something that isn't a Trim",
             notes: "Lorem Ipsum"
         },
-        stylist: "Rhiannon Bunn"
+        stylist: "Rhiannon Bunn",
+        service: "Something that isn't a Trim"
     },
     {
         startsAt: at(15), 
@@ -74,10 +74,10 @@ export const sampleAppointments = [
             firstName: 'Alex',
             surname: "Surname",
             phoneNumber: '(+44) 443-412',
-            service: "Trim",
             notes: "Lorem Ipsum"
         },
-        stylist: "Hazel Bunn"
+        stylist: "Hazel Bunn",
+        service: "Trim"
     },
     {
         startsAt: at(16), 
@@ -85,10 +85,10 @@ export const sampleAppointments = [
             firstName: 'Jules',
             surname: "Spurtame",
             phoneNumber: '(+44) 443-455',
-            service: "Beard Trim",
             notes: "Lorem Ipsum"
         },
-        stylist: "Hazel Bunn"
+        stylist: "Hazel Bunn",
+        service: "Beard Trim"
     },
     {
         startsAt: at(17), 
@@ -96,9 +96,9 @@ export const sampleAppointments = [
             firstName: 'Stevie',
             surname: "Spurtame",
             phoneNumber: '123-456',
-            service: "Trim",
             notes: "What kind of name is Spurtname lmao."
         },
-        stylist: "Gurt"
+        stylist: "Gurt",
+        service: "Trim"
     },
 ];
