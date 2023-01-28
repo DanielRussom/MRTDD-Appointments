@@ -26,7 +26,7 @@ describe('Appointment', () => {
     it('renders a heading with the time', () => {
       const timestamp = new Date().setHours(9, 0, 0);
 
-      act(() => root.render(<Appointment customer={customerAshley} startsAt={timestamp} />));
+      act(() => root.render(<Appointment customer={customerAshley} stylist="Hazel Bunn" service="Trim" notes="Lorem Ipsum" startsAt={timestamp} />));
 
       expect(container.querySelector('h3').textContent).toEqual(`Today's appointment at 09:00`);
     });
@@ -34,19 +34,19 @@ describe('Appointment', () => {
     it('renders a heading with another time', () => {
       const timestamp = new Date().setHours(10, 0, 0);
 
-      act(() => root.render(<Appointment customer={customerAshley} startsAt={timestamp} />));
+      act(() => root.render(<Appointment customer={customerAshley} stylist="Hazel Bunn" service="Trim" notes="Lorem Ipsum" startsAt={timestamp} />));
 
       expect(container.querySelector('h3').textContent).toEqual(`Today's appointment at 10:00`);
     });
 
     it('renders a table', () => {
-        act(() => root.render(<Appointment customer={customerAshley} />));
+        act(() => root.render(<Appointment customer={customerAshley} stylist="Hazel Bunn" service="Trim" notes="Lorem Ipsum" startsAt={new Date} />));
 
         expect(container.querySelector('table')).not.toBeNull();
     });
 
     it('renders the customers full name in the name field with a field title', () => {
-        act(() => root.render(<Appointment customer={customerAshley} />));
+        act(() => root.render(<Appointment customer={customerAshley} stylist="Hazel Bunn" service="Trim" notes="Lorem Ipsum" startsAt={new Date} />));
 
         var actualElements = TableDataElements('customer');
         expect(actualElements[0].textContent).toEqual(`Customer`);
@@ -56,13 +56,13 @@ describe('Appointment', () => {
     it('renders another customer name', () => {
         const customer = { firstName: "Jordan", surname: "Personson" };
 
-        act(() => root.render(<Appointment customer={customer} />));
+        act(() => root.render(<Appointment customer={customer} stylist="Hazel Bunn" service="Trim" notes="Lorem Ipsum" startsAt={new Date} />));
 
         expect(TableDataElements('customer')[1].textContent).toEqual(`${customer.firstName} ${customer.surname}`);
     });
 
     it('renders the customer phone number', () => {
-        act(() => root.render(<Appointment customer={customerAshley} />));
+        act(() => root.render(<Appointment customer={customerAshley} stylist="Hazel Bunn" service="Trim" notes="Lorem Ipsum" startsAt={new Date} />));
 
         var actualElements = TableDataElements('phoneNumber');
         expect(actualElements[0].textContent).toEqual(`Phone number`);
@@ -70,7 +70,7 @@ describe('Appointment', () => {
     });
 
     it('renders the stylist name', () => {
-        act(() => root.render(<Appointment customer={customerAshley} stylist="Hazel Bunn" />));
+        act(() => root.render(<Appointment customer={customerAshley} stylist="Hazel Bunn" service="Trim" notes="Lorem Ipsum" startsAt={new Date} />));
 
         var actualElements = TableDataElements('stylist');
         expect(actualElements[0].textContent).toEqual(`Stylist`);
@@ -78,7 +78,7 @@ describe('Appointment', () => {
     });
 
     it('renders the salon service', () => {
-        act(() => root.render(<Appointment customer={customerAshley} service="Trim"/>));
+        act(() => root.render(<Appointment customer={customerAshley} stylist="Hazel Bunn" service="Trim" notes="Lorem Ipsum" startsAt={new Date} />));
 
         var actualElements = TableDataElements('service');
         expect(actualElements[0].textContent).toEqual(`Service`);
@@ -86,7 +86,7 @@ describe('Appointment', () => {
     });
 
     it('renders the notes', () => {
-        act(() => root.render(<Appointment customer={customerAshley} notes="Lorem Ipsum"/>));
+        act(() => root.render(<Appointment customer={customerAshley} stylist="Hazel Bunn" service="Trim" notes="Lorem Ipsum" startsAt={new Date} />));
 
         var actualElements = TableDataElements('notes');
         expect(actualElements[0].textContent).toEqual(`Notes`);
