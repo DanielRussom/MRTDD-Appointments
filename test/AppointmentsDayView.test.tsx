@@ -3,17 +3,14 @@ import { createRoot } from 'react-dom/client';
 import { Appointment, AppointmentsDayView } from "../src/AppointmentsDayView";
 import { act } from 'react-dom/test-utils';
 import { fireEvent } from '@testing-library/react';
+import { initializeReactContainer, container, root } from './reactTestExtensions';
 
 describe('Appointment', () => {
-    let container;
-    let root;
     let customerAshley;
     let dummyAppointment;
 
     beforeEach(() => {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-        root = createRoot(container);
+        initializeReactContainer();
         customerAshley = {
             firstName: "Ashley",
             surname: "Surname",
@@ -97,14 +94,10 @@ describe('Appointment', () => {
 });
 
 describe('AppointmentsDayView', () => {
-    let container;
-    let root;
     let appointments;
 
     beforeEach(() => {
-        container = document.createElement('div');
-        document.body.appendChild(container);
-        root = createRoot(container);
+        initializeReactContainer();
 
         const today = new Date();
         appointments = [
