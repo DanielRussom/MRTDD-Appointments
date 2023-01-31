@@ -1,7 +1,6 @@
 import React from 'react';
 import { Appointment, AppointmentsDayView } from "../src/AppointmentsDayView";
-import { fireEvent } from '@testing-library/react';
-import { initializeReactContainer, render, container } from './reactTestExtensions';
+import { initializeReactContainer, render, container, click } from './reactTestExtensions';
 
 describe('Appointment', () => {
     let customerAshley;
@@ -154,9 +153,10 @@ describe('AppointmentsDayView', () => {
 
     it('renders another appointment when selected', () => {
         render(<AppointmentsDayView appointments={appointments} />);
-
         const button = container.querySelectorAll('button')[1];
-        fireEvent.click(button);
+
+        click(button);
+
         expect(container.textContent).toMatch('Jordan');
     });
 });
