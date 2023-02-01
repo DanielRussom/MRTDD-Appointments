@@ -4,8 +4,8 @@ import {
 } from "jest-matcher-utils";
 
 export const toEqualText = (
-    element,
-    expectedText
+    element: { textContent: string; },
+    expectedText: string
 ) => {
     const pass = element.textContent === expectedText;
 

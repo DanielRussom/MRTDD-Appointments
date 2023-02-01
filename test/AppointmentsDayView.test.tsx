@@ -36,9 +36,10 @@ describe('Appointment', () => {
     });
 
     it('renders a table', () => {
+        let selector : string = 'table';
         render(dummyAppointment);
 
-        expect(container.querySelector('table')).not.toBeNull();
+        expect(container.querySelector(selector)).not.toBeNull();
     });
 
     it('renders the customers full name in the name field with a field title', () => {
