@@ -13,4 +13,17 @@ describe("toEqualText matcher", () => {
 
         expect(result.pass).toBe(true);
     });
+
+    it('returns pass is false when text is not the same as the content in a given element', () => {
+        const element = {
+            textContent: "text to find"
+        };
+
+        const result = toEqualText(
+            element,
+            "other text to find"
+        );
+
+        expect(result.pass).toBe(false);
+    });
 })

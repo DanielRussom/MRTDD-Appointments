@@ -1,2 +1,2 @@
 export const toEqualText = (element, expectedText) =>
-    ({ pass: true });
+    ({ pass: element.textContent === expectedText });
