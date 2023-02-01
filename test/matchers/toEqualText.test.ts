@@ -1,5 +1,9 @@
 import { toEqualText } from "./toEqualText";
 
+const stripTerminalColor = (text) =>
+    text.replace(/\x1B\[\d+m/g, "");
+
+
 describe("toEqualText matcher", () => {
     it('returns pass is true when text is the same as the content in a given element', () => {
         const element = {
@@ -25,5 +29,18 @@ describe("toEqualText matcher", () => {
         );
 
         expect(result.pass).toBe(false);
+    });
+
+    it('returns a message that contains the source line if text is not equal', () => {
+        const element = {
+            textContent: "text to find"
+        };
+
+        const result = toEqualText(
+            element,
+            "other text to find"
+        );
+
+        expect(stripTerminalColor(result.message())).toContain(`expect(element).toEqualText("other text to find")`)
     });
 })
