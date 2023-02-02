@@ -47,6 +47,7 @@ const [selectedAppointmentIndex, setSelectedAppointmentIndex] = useState(0);
             {appointments.map((appointment, index) => (
                 <li key={appointment.startsAt}>
                     <button 
+                        className="bg-blue-500"
                         type="button"
                         onClick={() => setSelectedAppointmentIndex(index)}
                         >
