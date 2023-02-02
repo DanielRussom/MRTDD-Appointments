@@ -43,4 +43,30 @@ describe("toEqualText matcher", () => {
 
         expect(stripTerminalColor(result.message())).toContain(`expect(element).toEqualText("other text to find")`)
     });
+
+    it('returns a message that contains the source line if text is not equal', () => {
+        const element = {
+            textContent: "text to find"
+        };
+
+        const result = toEqualText(
+            element,
+            "other text to find"
+        );
+
+        expect(stripTerminalColor(result.message())).toContain(`expect(element).toEqualText("other text to find")`)
+    });
+
+    it('returns a message that contains the source line if negated match', () => {
+        const element = {
+            textContent: "text to find"
+        };
+
+        const result = toEqualText(
+            element,
+            "text to find"
+        );
+
+        expect(stripTerminalColor(result.message())).toContain(`expect(element).not.toEqualText("text to find")`)
+    });
 })

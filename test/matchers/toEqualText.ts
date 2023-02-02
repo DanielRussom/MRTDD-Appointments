@@ -14,7 +14,7 @@ export const toEqualText = (
             "toEqualText",
             "element",
             printExpected(expectedText),
-            {}
+            { isNot: pass }
         );
 
     return { pass, message };
