@@ -57,7 +57,7 @@ const [selectedAppointmentIndex, setSelectedAppointmentIndex] = useState(0);
             ))}
         </ol>
         { appointments.length === 0 ? (
-        <p>There are no appointments scheduled for today.</p>
+        <p className="text-lg font-light text-red-800">There are no appointments scheduled for today.</p>
         ) : (
             <Appointment {...appointments[selectedAppointmentIndex]} />
         )}
