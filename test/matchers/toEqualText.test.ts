@@ -69,4 +69,17 @@ describe("toEqualText matcher", () => {
 
         expect(stripTerminalColor(result.message())).toContain(`expect(element).not.toEqualText("text to find")`)
     });
+
+    it('returns a message that contains the actual text', () => {
+        const element = {
+            textContent: "text to find"
+        };
+
+        const result = toEqualText(
+            element,
+            "text to find"
+        );
+
+        expect(stripTerminalColor(result.message())).toContain(`Actual text: "text to find"`)
+    });
 })

@@ -1,6 +1,7 @@
 import {
     matcherHint,
-    printExpected
+    printExpected,
+    printReceived,
 } from "jest-matcher-utils";
 
 export const toEqualText = (
@@ -9,13 +10,17 @@ export const toEqualText = (
 ) => {
     const pass = element.textContent === expectedText;
 
-    const message = () =>
+    const sourceHint = () =>
         matcherHint(
             "toEqualText",
             "element",
             printExpected(expectedText),
             { isNot: pass }
         );
+    const actualTextHint = () => 
+        "Actual text: " + printReceived(element.textContent);
 
+    const message = () => [sourceHint(), actualTextHint()].join("\n\n");
+    
     return { pass, message };
 };
