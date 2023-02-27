@@ -16,3 +16,15 @@ export const render = (component) =>
 
 export const click = (element) =>
     fireEvent.click(element);
+
+export const element = (selector) => 
+    container.querySelector(selector);
+    
+export const elements = (selector) => 
+    Array.from(container.querySelectorAll(selector));
+
+export const typesOf = (elements) =>
+    elements.map((element) => element.type);
+
+export const textOf = (elements) =>
+    elements.map((element) => element.textContent);
