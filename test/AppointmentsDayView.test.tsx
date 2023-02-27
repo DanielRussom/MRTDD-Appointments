@@ -55,8 +55,8 @@ describe('Appointment', () => {
         render(dummyAppointment);
 
         var actualElements = TableDataElements('customer');
-        expect(actualElements[0].textContent).toEqual(`Customer`);
-        expect(actualElements[1].textContent).toEqual(`${customerAshley.firstName} ${customerAshley.surname}`);
+        const expectedCustomerName = `${customerAshley.firstName} ${customerAshley.surname}`;
+        expect(textOf(actualElements)).toEqual(["Customer", expectedCustomerName])
     });
 
     it('renders another customer name', () => {
@@ -64,15 +64,15 @@ describe('Appointment', () => {
 
         render(<Appointment customer={customer} stylist="Hazel Bunn" service="Trim" notes="Lorem Ipsum" startsAt={new Date} />);
 
-        expect(TableDataElements('customer')[1].textContent).toEqual(`${customer.firstName} ${customer.surname}`);
+        const secondCustomer = textOf(TableDataElements('customer'))[1];
+        expect(secondCustomer).toEqual(`${customer.firstName} ${customer.surname}`);
     });
 
     it('renders the customer phone number', () => {
         render(dummyAppointment);
 
         var actualElements = TableDataElements('phoneNumber');
-        expect(actualElements[0].textContent).toEqual(`Phone number`);
-        expect(actualElements[1].textContent).toEqual(customerAshley.phoneNumber);
+        expect(textOf(actualElements)).toEqual(["Phone number", customerAshley.phoneNumber])
     });
 
     it('renders the stylist name', () => {
