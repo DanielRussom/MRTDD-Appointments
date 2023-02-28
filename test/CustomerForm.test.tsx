@@ -26,6 +26,7 @@ describe("CustomerForm", () => {
         const field = element("form").elements.firstName;
         expect(field).not.toBeNull();
         expect(field.tagName).toEqual("INPUT");
+        expect(field.id).toEqual("firstName");
         expect(field.type).toEqual("text");
     });
 
@@ -41,4 +42,11 @@ describe("CustomerForm", () => {
         const label = element("label[for=firstName]");
         expect(label.textContent).toContain("First name");
     });
+
+    it("renders a submit button", () => {
+        render(<CustomerForm original={blankCustomer} />);
+        const button = element("input[type=submit]");
+        expect(button).not.toBeNull();
+        expect(button.value).toEqual("Add");
+       });
 })
