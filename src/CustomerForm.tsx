@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const CustomerForm = () => (<form>
-    <input name="firstName"/>
+export const CustomerForm = ( { original } ) => (<form>
+    <input name="firstName" value={original.firstName}/>
 </form>
 );
