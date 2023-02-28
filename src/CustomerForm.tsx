@@ -1,7 +1,7 @@
 import * as React from "react";
 
-export const CustomerForm = ( { original } ) => (
-<form>
+export const CustomerForm = ( { original, onSubmit } ) => (
+<form onSubmit={() => onSubmit(original)}>
     <label htmlFor="firstName">First name</label>
     <input 
         id="firstName"

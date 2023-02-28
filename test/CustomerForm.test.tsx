@@ -3,6 +3,7 @@ import {
     initializeReactContainer,
     render,
     element,
+    click,
 } from "./reactTestExtensions";
 import { CustomerForm } from "../src/CustomerForm";
 
@@ -48,5 +49,24 @@ describe("CustomerForm", () => {
         const button = element("input[type=submit]");
         expect(button).not.toBeNull();
         expect(button.value).toEqual("Add");
+       });
+
+       it("saves existing first name when submitted", () => {
+        // This means we're expecting some assertion to occur here 
+        // In this case, it forces us to ensure the onSubmit function was called
+        expect.hasAssertions(); 
+
+        const customer = { firstName: "Ashley" };
+        render(
+         <CustomerForm
+         original={customer}
+         onSubmit={({ firstName }) =>
+         expect(firstName).toEqual("Ashley")
+         }
+         />
+         
+        );
+        const button = element("input[type=submit]");
+        click(button);
        });
 })
