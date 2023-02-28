@@ -1,6 +1,10 @@
 import * as React from "react";
 
 export const CustomerForm = ( { original } ) => (<form>
-    <input name="firstName" value={original.firstName}/>
+    <input 
+        name="firstName" 
+        value={original.firstName}
+        readOnly
+    />
 </form>
 );
