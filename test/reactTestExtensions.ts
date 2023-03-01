@@ -17,10 +17,10 @@ export const render = (component) =>
 export const click = (element) =>
     fireEvent.click(element);
 
-export const element = (selector) => 
+export const element = (selector) =>
     container.querySelector(selector);
-    
-export const elements = (selector) => 
+
+export const elements = (selector) =>
     Array.from(container.querySelectorAll(selector));
 
 export const typesOf = (elements) =>
@@ -28,3 +28,12 @@ export const typesOf = (elements) =>
 
 export const textOf = (elements) =>
     elements.map((element) => element.textContent);
+
+export const submit = (formElement) => {
+    const event = new Event("submit", {
+        bubbles: true,
+        cancelable: true,
+    });
+    act(() => formElement.dispatchEvent(event));
+    return event;
+};

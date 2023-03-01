@@ -1,15 +1,23 @@
 import * as React from "react";
 
-export const CustomerForm = ( { original, onSubmit } ) => (
-<form onSubmit={() => onSubmit(original)}>
-    <label htmlFor="firstName">First name</label>
-    <input 
-        id="firstName"
-        name="firstName" 
-        value={original.firstName}
-        readOnly
-    />
+export const CustomerForm = ({ original, onSubmit }) => {
 
-    <input type="submit" value="Add" />
-</form>
-);
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        onSubmit(original);
+    }
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="firstName">First name</label>
+            <input
+                id="firstName"
+                name="firstName"
+                value={original.firstName}
+                readOnly
+            />
+
+            <input type="submit" value="Add" />
+        </form>
+    );
+};
