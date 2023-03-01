@@ -16,14 +16,16 @@ describe("CustomerForm", () => {
         firstName: "",
     };
 
+    const defaultForm = <CustomerForm original={blankCustomer} onSubmit={null} />
+
     it("renders a form", () => {
-        render(<CustomerForm original={blankCustomer} />);
+        render(defaultForm);
         expect(element("form")).not.toBeNull();
 
     });
 
     it("renders the first name field as a text box", () => {
-        render(<CustomerForm original={blankCustomer} />);
+        render(<CustomerForm original={blankCustomer} onSubmit={null} />);
         const field = element("form").elements.firstName;
         expect(field).not.toBeNull();
         expect(field.tagName).toEqual("INPUT");
@@ -33,40 +35,40 @@ describe("CustomerForm", () => {
 
     it("includes the existing value for the first name", () => {
         const customer = { firstName: "Ashley" };
-        render(<CustomerForm original={customer} />);
+        render(<CustomerForm original={customer} onSubmit={null} />);
         const field = element("form").elements.firstName;
         expect(field.value).toEqual("Ashley");
     })
 
     it("renders 'First name' as the first name label  content", () => {
-        render(<CustomerForm original={blankCustomer} />);
+        render(defaultForm);
         const label = element("label[for=firstName]");
         expect(label.textContent).toContain("First name");
     });
 
     it("renders a submit button", () => {
-        render(<CustomerForm original={blankCustomer} />);
+        render(defaultForm);
         const button = element("input[type=submit]");
         expect(button).not.toBeNull();
         expect(button.value).toEqual("Add");
-       });
+    });
 
-       it("saves existing first name when submitted", () => {
+    it("saves existing first name when submitted", () => {
         // This means we're expecting some assertion to occur here 
         // In this case, it forces us to ensure the onSubmit function was called
-        expect.hasAssertions(); 
+        expect.hasAssertions();
 
         const customer = { firstName: "Ashley" };
         render(
-         <CustomerForm
-         original={customer}
-         onSubmit={({ firstName }) =>
-         expect(firstName).toEqual("Ashley")
-         }
-         />
-         
+            <CustomerForm
+                original={customer}
+                onSubmit={({ firstName }) =>
+                    expect(firstName).toEqual("Ashley")
+                }
+            />
+
         );
         const button = element("input[type=submit]");
         click(button);
-       });
+    });
 })
