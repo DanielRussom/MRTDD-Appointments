@@ -19,6 +19,13 @@ export const CustomerForm = ({ original, onSubmit }) => {
             }))
     }
 
+    const handleChangePhoneNumber = ({ target }) => {
+        setCustomer((customer) => ({
+                ...customer,
+                phoneNumber: target.value
+            }))
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
         onSubmit(customer);
@@ -40,6 +47,14 @@ export const CustomerForm = ({ original, onSubmit }) => {
                 name="lastName"
                 value={original.lastName}
                 onChange={handleChangeLastName}
+            />
+            
+            <label htmlFor="phoneNumber">Phone number</label>
+            <input
+                id="phoneNumber"
+                name="phoneNumber"
+                value={original.phoneNumber}
+                onChange={handleChangePhoneNumber}
             />
 
             <input type="submit" value="Add" />

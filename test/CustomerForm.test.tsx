@@ -17,6 +17,7 @@ describe("CustomerForm", () => {
     const blankCustomer = {
         firstName: "",
         lastName: "",
+        phoneNumber: "",
     };
 
     const defaultForm = <CustomerForm original={blankCustomer} onSubmit={null} />
@@ -137,5 +138,17 @@ describe("CustomerForm", () => {
         itSubmitsExistingValue("lastName", "Person");
 
         itSavesNewValue("lastName", "Bloggs");
+    });
+
+    describe("phone number field", () => {
+        itRendersAsATextBox("phoneNumber");
+
+        itIncludesTheExistingValue("phoneNumber", "012345");
+
+        itRendersALabel("phoneNumber", "Phone number");
+
+        itSubmitsExistingValue("phoneNumber", "012345");
+
+        itSavesNewValue("phoneNumber", "67890");
     });
 })
