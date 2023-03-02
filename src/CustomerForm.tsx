@@ -6,9 +6,22 @@ export const CustomerForm = ({ original, onSubmit }) => {
     const [customer, setCustomer] = useState(original);
 
     const handleChange = ({ target }) => {
+        console.log("hiii")
+        console.log(target.name)
+        console.log(target.value)
         setCustomer((customer) => ({
                 ...customer,
                 [target.name]: target.value
+            }))
+    }
+
+    const handleChangeFirstName = ({ target }) => {
+        console.log("hiii2")
+        console.log(target.value)
+
+        setCustomer((customer) => ({
+                ...customer,
+                firstName: target.value
             }))
     }
 
@@ -21,10 +34,11 @@ export const CustomerForm = ({ original, onSubmit }) => {
         <form onSubmit={handleSubmit}>
             <label htmlFor="firstName">First name</label>
             <input
+                type="text"
                 id="firstName"
                 name="firstName"
                 value={original.firstName}
-                onChange={handleChange}
+                onChange={handleChangeFirstName}
             />
             
             <label htmlFor="lastName">Last name</label>
