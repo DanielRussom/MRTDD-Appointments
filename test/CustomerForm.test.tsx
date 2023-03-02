@@ -44,33 +44,43 @@ describe("CustomerForm", () => {
         expect(event.defaultPrevented).toBe(true);
     });
 
-    describe("first name field", () => {
-        const itRendersAsATextBox = (fieldName) =>
+    const itRendersAsATextBox = (fieldName) =>
         it("renders as a text box", () => {
             render(<CustomerForm original={blankCustomer} onSubmit={null} />);
 
             const field = element("form").elements[fieldName];
-            
+
             expect(field).not.toBeNull();
             expect(field.tagName).toEqual("INPUT");
             expect(field.id).toEqual(fieldName);
             expect(field.type).toEqual("text");
         });
 
-        itRendersAsATextBox("firstName");
-
+    const itIncludesTheExistingValue = (fieldName, existingValue) =>
         it("includes the existing value", () => {
-            const customer = { firstName: "Ashley" };
+            const customer = { [fieldName]: existingValue };
             render(<CustomerForm original={customer} onSubmit={null} />);
-            const field = element("form").elements.firstName;
-            expect(field.value).toEqual("Ashley");
+
+            const field = element("form").elements[fieldName];
+
+            expect(field.value).toEqual(existingValue);
         })
 
+        const itRendersALabel = (fieldName, expected) =>
         it("renders a label", () => {
             render(defaultForm);
-            const label = element("label[for=firstName]");
-            expect(label.textContent).toContain("First name");
+            const label = element(`label[for=${fieldName}]`);
+            expect(label.textContent).toContain(expected);
         });
+
+
+    describe("first name field", () => {
+
+        itRendersAsATextBox("firstName");
+
+        itIncludesTheExistingValue("firstName", "Ashley");
+
+        itRendersALabel("firstName", "First name");
 
         it("saves existing value when submitted", () => {
             // This means we're expecting some assertion to occur here 
