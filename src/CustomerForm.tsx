@@ -1,10 +1,20 @@
 import * as React from "react";
+import { useState } from "react";
 
 export const CustomerForm = ({ original, onSubmit }) => {
 
+    const [customer, setCustomer] = useState(original);
+
+    const handleChangeFirstName = ({ target }) => {
+        setCustomer((customer) => ({
+                ...customer,
+                firstName: target.value
+            }))
+    }
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        onSubmit(original);
+        onSubmit(customer);
     }
 
     return (
@@ -14,7 +24,7 @@ export const CustomerForm = ({ original, onSubmit }) => {
                 id="firstName"
                 name="firstName"
                 value={original.firstName}
-                readOnly
+                onChange={handleChangeFirstName}
             />
 
             <input type="submit" value="Add" />

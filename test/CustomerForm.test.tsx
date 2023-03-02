@@ -5,6 +5,7 @@ import {
     element,
     click,
     submit,
+    change,
 } from "./reactTestExtensions";
 import { CustomerForm } from "../src/CustomerForm";
 
@@ -72,14 +73,35 @@ describe("CustomerForm", () => {
         const button = element("input[type=submit]");
         click(button);
     });
+    
     it("prevents the default action when submitting the form", () => {
-     render(
-     <CustomerForm
-     original={blankCustomer}
-     onSubmit={() => {}}
-     />
-     );
-     const event = submit(element("form"));
-     expect(event.defaultPrevented).toBe(true);
+        render(
+            <CustomerForm
+                original={blankCustomer}
+                onSubmit={() => { }}
+            />
+        );
+        const event = submit(element("form"));
+        expect(event.defaultPrevented).toBe(true);
     });
+
+    it("saves new first name when submitted", () => {
+        expect.hasAssertions();
+        render(
+            <CustomerForm
+                original={blankCustomer}
+                onSubmit={({ firstName }) =>
+                    expect(firstName).toEqual("Jamie")
+                }
+            />
+        );
+        
+        let field = element("form").elements.firstName;
+
+        change(field, "Jamie");
+
+        const button = element("input[type=submit]");
+
+        click(button);
+    })
 })
