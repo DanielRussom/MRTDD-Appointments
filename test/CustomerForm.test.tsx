@@ -66,12 +66,51 @@ describe("CustomerForm", () => {
             expect(field.value).toEqual(existingValue);
         })
 
-        const itRendersALabel = (fieldName, expected) =>
+    const itRendersALabel = (fieldName, expected) =>
         it("renders a label", () => {
             render(defaultForm);
             const label = element(`label[for=${fieldName}]`);
             expect(label.textContent).toContain(expected);
         });
+
+    const itSubmitsExistingValue = (fieldName, value) =>
+        it("saves existing value when submitted", () => {
+            // This means we're expecting some assertion to occur here 
+            // In this case, it forces us to ensure the onSubmit function was called
+            expect.hasAssertions();
+
+            const customer = { [fieldName]: value };
+            render(
+                <CustomerForm
+                    original={customer}
+                    onSubmit={(props) =>
+                        expect(props[fieldName]).toEqual(value)
+                    }
+                />
+
+            );
+            const button = element("input[type=submit]");
+            click(button);
+        });
+
+    const itSavesNewValue = (fieldName, newValue) =>
+        it("saves new value when submitted", () => {
+            expect.hasAssertions();
+            render(
+                <CustomerForm
+                    original={blankCustomer}
+                    onSubmit={(props) =>
+                        expect(props[fieldName]).toEqual(newValue)
+                    }
+                />
+            );
+
+            const field = element("form").elements[fieldName];
+            change(field, newValue);
+
+            const button = element("input[type=submit]");
+            click(button);
+        })
 
 
     describe("first name field", () => {
@@ -82,43 +121,8 @@ describe("CustomerForm", () => {
 
         itRendersALabel("firstName", "First name");
 
-        it("saves existing value when submitted", () => {
-            // This means we're expecting some assertion to occur here 
-            // In this case, it forces us to ensure the onSubmit function was called
-            expect.hasAssertions();
+        itSubmitsExistingValue("firstName", "Ashley");
 
-            const customer = { firstName: "Ashley" };
-            render(
-                <CustomerForm
-                    original={customer}
-                    onSubmit={({ firstName }) =>
-                        expect(firstName).toEqual("Ashley")
-                    }
-                />
-
-            );
-            const button = element("input[type=submit]");
-            click(button);
-        });
-
-        it("saves new value when submitted", () => {
-            expect.hasAssertions();
-            render(
-                <CustomerForm
-                    original={blankCustomer}
-                    onSubmit={({ firstName }) =>
-                        expect(firstName).toEqual("Jamie")
-                    }
-                />
-            );
-
-            let field = element("form").elements.firstName;
-
-            change(field, "Jamie");
-
-            const button = element("input[type=submit]");
-
-            click(button);
-        })
+        itSavesNewValue("firstName", "Jamie");
     })
 })
