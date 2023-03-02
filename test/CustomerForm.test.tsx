@@ -16,6 +16,7 @@ describe("CustomerForm", () => {
 
     const blankCustomer = {
         firstName: "",
+        lastName: "",
     };
 
     const defaultForm = <CustomerForm original={blankCustomer} onSubmit={null} />
@@ -124,5 +125,9 @@ describe("CustomerForm", () => {
         itSubmitsExistingValue("firstName", "Ashley");
 
         itSavesNewValue("firstName", "Jamie");
-    })
+    });
+
+    describe("last name field", () => {
+        itRendersAsATextBox("lastName");
+    });
 })
