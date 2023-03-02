@@ -45,14 +45,19 @@ describe("CustomerForm", () => {
     });
 
     describe("first name field", () => {
-        it("rendersas a text box", () => {
+        const itRendersAsATextBox = (fieldName) =>
+        it("renders as a text box", () => {
             render(<CustomerForm original={blankCustomer} onSubmit={null} />);
-            const field = element("form").elements.firstName;
+
+            const field = element("form").elements[fieldName];
+            
             expect(field).not.toBeNull();
             expect(field.tagName).toEqual("INPUT");
-            expect(field.id).toEqual("firstName");
+            expect(field.id).toEqual(fieldName);
             expect(field.type).toEqual("text");
         });
+
+        itRendersAsATextBox("firstName");
 
         it("includes the existing value", () => {
             const customer = { firstName: "Ashley" };
