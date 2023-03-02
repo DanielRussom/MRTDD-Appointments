@@ -129,5 +129,13 @@ describe("CustomerForm", () => {
 
     describe("last name field", () => {
         itRendersAsATextBox("lastName");
+
+        itIncludesTheExistingValue("lastName", "Person");
+
+        itRendersALabel("lastName", "Last name");
+
+        itSubmitsExistingValue("lastName", "Person");
+
+        itSavesNewValue("lastName", "Bloggs");
     });
 })
