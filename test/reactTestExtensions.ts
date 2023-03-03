@@ -1,41 +1,28 @@
-import { createRoot } from 'react-dom/client';
-import { act } from 'react-dom/test-utils';
-import { fireEvent } from '@testing-library/react';
+import ReactDOM from "react-dom/client";
+import { act } from "react-dom/test-utils";
 
 export let container;
-export let root;
 
 export const initializeReactContainer = () => {
-    container = document.createElement('div');
-    document.body.appendChild(container);
-    root = createRoot(container);
+  container = document.createElement("div");
+  document.body.replaceChildren(container);
 };
 
 export const render = (component) =>
-    act(() => root.render(component));
+  act(() =>
+    ReactDOM.createRoot(container).render(component)
+  );
 
 export const click = (element) =>
-    fireEvent.click(element);
-
-export const element = (selector) =>
-    container.querySelector(selector);
-
-export const elements = (selector) =>
-    Array.from(container.querySelectorAll(selector));
-
-export const typesOf = (elements) =>
-    elements.map((element) => element.type);
-
-export const textOf = (elements) =>
-    elements.map((element) => element.textContent);
+  act(() => element.click());
 
 export const submit = (formElement) => {
-    const event = new Event("submit", {
-        bubbles: true,
-        cancelable: true,
-    });
-    act(() => formElement.dispatchEvent(event));
-    return event;
+  const event = new Event("submit", {
+    bubbles: true,
+    cancelable: true,
+  });
+  act(() => formElement.dispatchEvent(event));
+  return event;
 };
 
 const originalValueProperty = (reactElement) => {
@@ -48,13 +35,37 @@ const originalValueProperty = (reactElement) => {
 };
 
 export const change = (target, value) => {
-    originalValueProperty(target).set.call(
-        target,
-        value
-    );
-    const event = new Event("change", {
-        target,
-        bubbles: true,
-    });
-    act(() => target.dispatchEvent(event));
-}
+  originalValueProperty(target)!.set!.call(
+    target,
+    value
+  );
+  
+  const event = new Event("change", {
+    bubbles: true,
+  });
+
+  act(() => target.dispatchEvent(event));
+};
+
+export const element = (selector) =>
+  document.querySelector(selector);
+
+export const elements = (selector) =>
+  Array.from(document.querySelectorAll(selector));
+
+export const typesOf = (elements) =>
+  elements.map((element) => element.type);
+
+export const textOf = (elements) =>
+  elements.map((element) => element.textContent);
+
+export const form = () => element("form");
+
+export const field = (fieldName) =>
+  form().elements[fieldName];
+
+export const submitButton = () =>
+  element("input[type=submit]");
+
+export const labelFor = (formElement) =>
+  element(`label[for=${formElement}]`);
