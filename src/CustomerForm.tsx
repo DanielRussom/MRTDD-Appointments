@@ -6,22 +6,9 @@ export const CustomerForm = ({ original, onSubmit }) => {
     const [customer, setCustomer] = useState(original);
 
     const handleChange = ({ target }) => {
-        console.log("hiii")
-        console.log(target.name)
-        console.log(target.value)
         setCustomer((customer) => ({
                 ...customer,
                 [target.name]: target.value
-            }))
-    }
-
-    const handleChangeFirstName = ({ target }) => {
-        console.log("hiii2")
-        console.log(target.value)
-
-        setCustomer((customer) => ({
-                ...customer,
-                firstName: target.value
             }))
     }
 
@@ -37,15 +24,15 @@ export const CustomerForm = ({ original, onSubmit }) => {
                 type="text"
                 id="firstName"
                 name="firstName"
-                value={original.firstName}
-                onChange={handleChangeFirstName}
+                value={customer.firstName}
+                onChange={handleChange}
             />
             
             <label htmlFor="lastName">Last name</label>
             <input
                 id="lastName"
                 name="lastName"
-                value={original.lastName}
+                value={customer.lastName}
                 onChange={handleChange}
             />
             
@@ -53,7 +40,7 @@ export const CustomerForm = ({ original, onSubmit }) => {
             <input
                 id="phoneNumber"
                 name="phoneNumber"
-                value={original.phoneNumber}
+                value={customer.phoneNumber}
                 onChange={handleChange}
             />
 
