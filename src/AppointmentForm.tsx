@@ -29,6 +29,11 @@ const TimeSlotTable = ({ salonOpensAt, salonClosesAt }) => {
         salonClosesAt);
     return (
         <table id="time-slots">
+            <thead>
+                <tr>
+                    <th />
+                </tr>
+            </thead>
             <tbody>
                 {timeSlots.map(timeSlot => (
                     <tr key={timeSlot}>

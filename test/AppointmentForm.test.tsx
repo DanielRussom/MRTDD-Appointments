@@ -87,6 +87,7 @@ describe("AppointmentForm", () => {
                 element("table#time-slots")
             ).not.toBeNull();
         });
+
         it("renders a time slot for every half an hour between open and close times", () => {
             render(
                 <AppointmentForm
@@ -105,6 +106,12 @@ describe("AppointmentForm", () => {
             expect(timesOfDayHeadings[3].textContent).toContain(
                 "10:30"
             );
+        });
+
+        it("renders an empty cell at the start of the header row", () => {
+            render(<AppointmentForm original={blankAppointment} />);
+            const headerRow = element("thead > tr");
+            expect(headerRow.firstChild.textContent).toContain("");
         });
     });
 });
