@@ -110,9 +110,28 @@ describe("AppointmentForm", () => {
 
         it("renders an empty cell at the start of the header row", () => {
             render(<AppointmentForm original={blankAppointment} />);
+
             const headerRow = element("thead > tr");
+
             expect(headerRow.firstChild.textContent).toContain("");
         });
+
+        it("renders a week of available dates", () => {
+            const specificDate = new Date(2023, 1, 1);
+            render(
+            <AppointmentForm
+            original={blankAppointment}
+            today={specificDate}
+            />
+            );
+            const dates = elements(
+            "thead >* th:not(:first-child)"
+            );
+            expect(dates).toHaveLength(7);
+            expect(dates[0].textContent).toContain("Wed 01");
+            expect(dates[1].textContent).toContain("Thu 02");
+            expect(dates[6].textContent).toContain("Tue 07");
+           });
     });
 });
 

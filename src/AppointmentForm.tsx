@@ -23,15 +23,33 @@ const dailyTimeSlots = (salonOpensAt, salonClosesAt) => {
 const toTimeValue = timestamp =>
     new Date(timestamp).toTimeString().substring(0, 5);
 
-const TimeSlotTable = ({ salonOpensAt, salonClosesAt }) => {
+const weeklyDateValues = (startDate) => {
+    const midnight = startDate.setHours(0, 0, 0, 0);
+    const increment = 24 * 60 * 60 * 1000;
+    return timeIncrements(7, midnight, increment);
+};
+
+const toShortDate = (timestamp) => {
+    const [day, , dayOfMonth] = new Date(timestamp)
+        .toDateString()
+        .split(" ");
+    return `${day} ${dayOfMonth}`;
+};
+
+const TimeSlotTable = ({ salonOpensAt, salonClosesAt, today }) => {
     const timeSlots = dailyTimeSlots(
         salonOpensAt,
         salonClosesAt);
+    const dates = weeklyDateValues(today);
+
     return (
         <table id="time-slots">
             <thead>
                 <tr>
                     <th />
+                    {dates.map(d => (
+                        <th key={d}>{toShortDate(d)}</th>
+                    ))}
                 </tr>
             </thead>
             <tbody>
@@ -45,9 +63,12 @@ const TimeSlotTable = ({ salonOpensAt, salonClosesAt }) => {
     );
 };
 
-export const AppointmentForm = ({ selectableServices, original,
-    salonOpensAt,
-    salonClosesAt }) => {
+export const AppointmentForm = ({ 
+    selectableServices, 
+    original,
+    salonOpensAt, 
+    salonClosesAt, 
+    today }) => {
     return (
         <form>
             <select name="service"
@@ -61,7 +82,8 @@ export const AppointmentForm = ({ selectableServices, original,
             </select>
             <TimeSlotTable
                 salonOpensAt={salonOpensAt}
-                salonClosesAt={salonClosesAt} />
+                salonClosesAt={salonClosesAt}
+                today={today} />
         </form>
     )
 }
@@ -76,5 +98,6 @@ AppointmentForm.defaultProps = {
         "Beard trim",
         "Cut & beard trim",
         "Extensions",
-    ]
+    ],
+    today: new Date(),
 }
